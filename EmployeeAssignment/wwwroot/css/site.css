@@ -1,0 +1,45 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+#tblEmployees {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #tblEmployees td, #tblEmployees th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #tblEmployees tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #tblEmployees tr:hover {
+        background-color: #ddd;
+    }
+
+    #tblEmployees th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }

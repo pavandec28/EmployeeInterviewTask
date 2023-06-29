@@ -1,0 +1,47 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div id="errorMessage" style="display:none" class="alert alert-danger"></div>
+<form id="frmEmployees" method="post">
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+    </div>
+
+    <table id="tblEmployees">
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Worked Days</th>
+                <th>Vacation Remaining</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.employees)
+            {
+                <tr>
+                    <td>@employee.empId</td>
+                    <td>@employee.empFullName</td>
+                    <td>@employee.empType</td>
+                    <td>
+                        <label>@employee.workedDays</label>
+                        @Html.TextBox("WorkDays", @employee.workedDays, htmlAttributes: new { id = "txtWorkedDays_" + @employee.empId })
+                    </td>
+                    <td>
+                        @Html.TextBox("WorkDays", @employee.noOfVacationDays, htmlAttributes: new { id = "txtVacationDays_" + @employee.empId })
+                        <label>/@employee.noOfVacationDays</label>
+                    </td>
+                    <td>
+                        <a asp-page="./WorkDays" onclick="validateWordDays(@employee.empId,@employee.workedDays)">Add Work Days</a>
+                        <a asp-page="./TakeVacation" onclick="validateVacationDays(@employee.empId,@employee.noOfVacationDays)">Take Vacation</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
